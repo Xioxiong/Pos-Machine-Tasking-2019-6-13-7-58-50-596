@@ -70,12 +70,21 @@ function assemble(assembleInput,num){
     return str+"----------------"+"\n"+num;
 }
 
+//主函数generateReceipts
+function generateReceipts(productCodes){ 
+    let receiptItems = generateReceiptItems(productCodes);
+    let total = countTotalPrice(receiptItems);
+    let str = assemble(receiptItems,total);
+    return str;
+}
+
 module.exports = {
     countProducts,
     fetchProduct,
     generateReceiptItems,
     countTotalPrice,
-    assemble
+    assemble,
+    generateReceipts
 }
 
 
